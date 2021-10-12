@@ -3923,6 +3923,7 @@ cdef class Model:
         print('Record information')
         # COLUMNS
         cdef SCIP_COL** cols = SCIPgetLPCols(scip)
+        print('Record cols')
         cdef int ncols = SCIPgetNLPCols(scip)
         print('Ncols: {}'.format(ncols))
         # print('Ncols: {}'.format(ncols))
