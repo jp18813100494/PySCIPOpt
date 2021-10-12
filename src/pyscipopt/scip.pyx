@@ -1348,7 +1348,10 @@ cdef class Model:
 
     def getNLPCols(self):
         """Retrieve the number of cols currently in the LP"""
-        return SCIPgetNLPCols(self._scip)
+        Ncols = SCIPgetNLPCols(self._scip)
+        print('Ncols:{}'.format(Ncols))
+        return Ncols
+        # return SCIPgetNLPCols(self._scip)
 
     def getLPBasisInd(self):
         """Gets all indices of basic columns and rows: index i >= 0 corresponds to column i, index i < 0 to row -i-1"""
