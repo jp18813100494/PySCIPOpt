@@ -3921,6 +3921,7 @@ cdef class Model:
 
         update = prev_state is not None
         print('Record information')
+        print('Recording cols')
         # COLUMNS
         cdef SCIP_COL** cols = SCIPgetLPCols(scip)
         print('Record cols')
