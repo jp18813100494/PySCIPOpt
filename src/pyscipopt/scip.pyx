@@ -3968,7 +3968,7 @@ cdef class Model:
             col_sol_is_at_ub = prev_state['col']['sol_is_at_ub']
             col_incvals      = prev_state['col']['incvals']
             col_avgincvals   = prev_state['col']['avgincvals']
-
+        print('col_types: {}'.format(col_types))
         cdef SCIP_SOL* sol = SCIPgetBestSol(scip)
         cdef SCIP_VAR* var
         cdef SCIP_Real lb, ub, solval
