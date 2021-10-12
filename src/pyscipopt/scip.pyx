@@ -3920,11 +3920,12 @@ cdef class Model:
         cdef SCIP_Real sim, prod
 
         update = prev_state is not None
-
+        print('Record information')
         # COLUMNS
         cdef SCIP_COL** cols = SCIPgetLPCols(scip)
         cdef int ncols = SCIPgetNLPCols(scip)
-
+        print('Ncols: {}'.format(ncols))
+        # print('Ncols: {}'.format(ncols))
         cdef np.ndarray[np.int32_t,   ndim=1] col_types
         cdef np.ndarray[np.float32_t, ndim=1] col_coefs
         cdef np.ndarray[np.float32_t, ndim=1] col_lbs
