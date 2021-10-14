@@ -1348,10 +1348,10 @@ cdef class Model:
 
     def getNLPCols(self):
         """Retrieve the number of cols currently in the LP"""
-        Ncols = SCIPgetNLPCols(self._scip)
-        print('Ncols:{}'.format(Ncols))
-        return Ncols
-        # return SCIPgetNLPCols(self._scip)
+        # Ncols = SCIPgetNLPCols(self._scip)
+        # print('Ncols:{}'.format(Ncols))
+        # return Ncols
+        return SCIPgetNLPCols(self._scip)
 
     def getLPBasisInd(self):
         """Gets all indices of basic columns and rows: index i >= 0 corresponds to column i, index i < 0 to row -i-1"""
@@ -3923,13 +3923,13 @@ cdef class Model:
         cdef SCIP_Real sim, prod
 
         update = prev_state is not None
-        print('Record information')
-        print('Recording cols')
+        # print('Record information')
+        # print('Recording cols')
         # COLUMNS
         cdef SCIP_COL** cols = SCIPgetLPCols(scip)
-        print('Record cols')
+        # print('Record cols')
         cdef int ncols = SCIPgetNLPCols(scip)
-        print('Ncols: {}'.format(ncols))
+        # print('Ncols: {}'.format(ncols))
         # print('Ncols: {}'.format(ncols))
         cdef np.ndarray[np.int32_t,   ndim=1] col_types
         cdef np.ndarray[np.float32_t, ndim=1] col_coefs
@@ -3973,7 +3973,7 @@ cdef class Model:
             col_sol_is_at_ub = prev_state['col']['sol_is_at_ub']
             col_incvals      = prev_state['col']['incvals']
             col_avgincvals   = prev_state['col']['avgincvals']
-        print('col_types: {}'.format(col_types))
+        # print('col_types: {}'.format(col_types))
         cdef SCIP_SOL* sol = SCIPgetBestSol(scip)
         cdef SCIP_VAR* var
         cdef SCIP_Real lb, ub, solval
